@@ -1,1 +1,23 @@
-<p>rental works!</p>
+<div>  
+    <h4 class="text-center text-white bg-dark">Kiralama Listesi</h4>
+    <table  class="table">
+        <thead class="table-secondary">
+            <tr>
+                <th>Araç Id</th>
+                <th>Marka</th>
+                <th>Müşteri Adı Soyadı</th>
+                <th>Kiralama Tarihi</th>
+                <th>Araç Teslim  </th>
+            </tr>
+        </thead>
+        <tbody class="table-light">
+            <tr *ngFor="let rental of rentals" >
+              <td>{{rental.carId}}</td>
+              <td>{{rental.brandName}}</td>
+              <td>{{rental.customerName}}</td>
+              <td>{{rental.rentDate}}</td>
+              <td>{{rental.returnDate}}</td>
+            </tr>
+          </tbody>
+    </table>
+</div>
