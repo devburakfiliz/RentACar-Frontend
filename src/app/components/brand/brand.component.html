@@ -1,22 +1,14 @@
 
+<ul class="list-group">
+  <h4 class="text-center text-white bg-dark">Markalar</h4>
+    <li
+      (click)="setCurrentBrand(brand)"
+      routerLink="/cars/brand/{{ brand.id }}"
+      *ngFor="let brand of brands"
+      [class]="getCurrentBrandClass(brand)"
+    >
+      {{ brand.brandName }}
+    </li>
+  </ul>
 
-<div>
-    <h4 class="text-center text-white bg-dark">Markalar</h4>
-    <table class="table">
-        <thead class="table-secondary">
-            <tr>
-                <th>Id</th>
-                <th>Marka Ad</th>
-
-            </tr>
-        </thead>
-        <tbody class="table-light">
-            
-            <tr *ngFor="let brand of brands">
-                <td>{{brand.id}}</td>
-                <td>{{brand.brandName}}</td>
-                
-            </tr>
-        </tbody>
-    </table>
-</div>
+ 
