@@ -21,8 +21,7 @@ import { CarImageComponent } from './components/car-image/car-image.component';
     NaviComponent,
     CarComponent,
     RentalComponent,
-    CarImageComponent
-  ],
+    CarImageComponent  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

@@ -3,8 +3,10 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Brand } from 'src/app/models/brand';
 import { Car } from 'src/app/models/car';
+import { CarImage } from 'src/app/models/carImage';
 import { Color } from 'src/app/models/color';
 import { BrandService } from 'src/app/services/brand.service';
+import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
 import { ColorService } from 'src/app/services/color.service';
 @Component({
@@ -15,13 +17,16 @@ import { ColorService } from 'src/app/services/color.service';
 export class CarComponent implements OnInit {
   cars : Car[]=[];
   imageUrl = "https://localhost:44392/uploads/images/"
+  carImages: CarImage[];
+
   dataLoaded = false ;
   currentCar:Car
   filterText ="";
 
   constructor(
     private carService : CarService,
-    private activatedRouted:ActivatedRoute){}
+    private activatedRouted:ActivatedRoute,
+    private carImageService:CarImageService){}
 
   ngOnInit(): void {
     this.activatedRouted.params.subscribe(params => {
@@ -58,7 +63,7 @@ export class CarComponent implements OnInit {
   }
   getCarImage(car:Car){
     if (car.imagePath == null) {
-      let path = this.imageUrl + "/images/carDefault.png"
+      let path = this.imageUrl + "a4f5208e-22e4-4fe2-8426-e61807a07393.jpg"
       return path;
 
     }
@@ -67,6 +72,8 @@ export class CarComponent implements OnInit {
       return path;
     }
   }
+ 
+
   
 
 }
