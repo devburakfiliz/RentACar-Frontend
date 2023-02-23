@@ -20,7 +20,7 @@ export class CarComponent implements OnInit {
   carImages: CarImage[];
 
   dataLoaded = false ;
-  currentCar:Car
+  currentCar:Car | null;
   filterText ="";
 
   constructor(
@@ -35,6 +35,9 @@ export class CarComponent implements OnInit {
       }
       else if(params["colorId"] ){
         this.getCarByColor(params["colorId"])
+      }
+      else if (params["carId"]) {
+        this.getCarById(params["carId"])
       }
       else{
         this.getCars();
@@ -71,6 +74,19 @@ export class CarComponent implements OnInit {
       let path = this.imageUrl + car.imagePath;
       return path;
     }
+  }
+  setCurrentCar(car:Car){
+    this.currentCar=car;
+  }
+  reset(){
+    this.currentCar = null;
+
+  }
+  getCarById(carId:number){
+    this.carService.getCarsByBrand(carId).subscribe(response => {
+      this.cars = response.data;
+      
+    })
   }
  
 
