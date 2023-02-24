@@ -13,7 +13,7 @@ import { CarService } from 'src/app/services/car.service';
 export class CardetailComponent implements OnInit{
   carsdetail:Car[]=[];
    imageUrl = "https://localhost:44392/uploads/images/"
-   carImages:CarImage[];
+   carImages:CarImage[] = [];
    currentCar:Car
    currentImage: CarImage;
    dataLoaded = false ;
@@ -37,6 +37,12 @@ export class CardetailComponent implements OnInit{
 
       })
     }
+
+    getImagePath(carImage: CarImage) {
+      let path = this.imageUrl + carImage.imagePath;
+      return path;
+    }
+
     getCars(){
       this.carService.getCars(). subscribe((response)=>{
         this.carsdetail=response.data
@@ -83,6 +89,7 @@ export class CardetailComponent implements OnInit{
     this.dataLoaded=true;
 
   }
+  
 
   
 }

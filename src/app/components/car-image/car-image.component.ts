@@ -21,12 +21,23 @@ export class CarImageComponent implements OnInit{
       if(params["carId"]){
         this.getCarImagesByCarId(params["carId"])
       }
+      else if (params["carImage"]) {
+        this.getImagePath(params["carImage"])
+      }
       else
       {
         this.getCarImages()
       }   
 
      
+     
+    })
+   }
+
+   getImagePath(carImage:string ){
+    this.carImageService.getImagePath(carImage).subscribe(response=>{
+      this.carImages=response.data
+      this.dataLoaded=true;
     })
    }
 

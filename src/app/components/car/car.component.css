@@ -1,5 +1,6 @@
 .size  {
-    width: auto;
-    max-height: 160px;
+        width: auto;
+        height: 160px;
+        object-fit: cover!important;
     }
    

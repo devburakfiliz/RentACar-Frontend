@@ -8,7 +8,7 @@ import { CarImage } from '../models/carImage';
   providedIn: 'root'
 })
 export class CarImageService {
-  apiURL = 'https://localhost:44392/api/';
+  apiURL = 'https://localhost:44392/';
 
   constructor(private httpClient:HttpClient) { }
  
@@ -19,12 +19,16 @@ export class CarImageService {
   
   
   getCarImagesByCarId(carId:number):Observable<ListResponseModel<CarImage>>{
-   let newPath = this.apiURL + "CarImages/getbycarid?carId="+carId 
+   let newPath = this.apiURL + "api/CarImages/getbycarid?carId="+carId 
    return this.httpClient.get<ListResponseModel<CarImage>>(newPath);     
   }
 
   getByCarId(carId:number):Observable<ListResponseModel<CarImage>>{
-    let newPath = this.apiURL + "CarImages/getbycarid?carId=" + carId;
+    let newPath = this.apiURL + "api/CarImages/getbycarid?carId=" + carId;
+    return this.httpClient.get<ListResponseModel<CarImage>>(newPath)
+  }
+  getImagePath(carImage: string):Observable<ListResponseModel<CarImage>>{
+    let newPath = this.apiURL+"uploads/images/="+carImage
     return this.httpClient.get<ListResponseModel<CarImage>>(newPath)
   }
 

@@ -1,12 +1,34 @@
 <br>
 <br>
 <div class="row ">
-  
-    <div class="col-md-4" 
+
+
+    <div *ngIf="carImages.length > 0" id="carouselExampleIndicators" class="carousel slide " data-bs-ride="true">
+        <ol class="carousel-indicators">
+          <li data-bs-target="#carouselExampleIndicators" *ngFor="let carImage of carImages; let i = index" 
+          [attr.data-bs-slide-to]="i" [class.active]="i == 0"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item" *ngFor="let carImage of carImages; let i = index" [class.active]="i == 0">
+            <img [src]="getImagePath(carImage)" class="d-block fit" alt="car image">
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next"  type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+      </div> 
+</div>   
+  <br>
+    <div class="col-md-9 cardsize" 
     
     *ngFor = "let car of carsdetail " >
-      <div class="card" style="width: 18rem;">
-        <img [src] ="getCarImage(car)" class="img-fluid card-img-top resim d-flex size" alt="...">
+      <div class="card  ">
+       
 
         <div class="card-body">
           
@@ -15,6 +37,7 @@
         </div>
         <ul class="list-group list-group-flush text-center text-bolder">
           <li class="list-group-item"><i><b>Model Yılı</b></i> | {{car.modelYear}}</li>
+          <li class="list-group-item"><i><b>Detaylar</b></i> | {{car.description}}</li>
           <li class="list-group-item"><i><b>Günlük Fiyat</b></i> | {{car.dailyPrice  | currency:"₺ " }}</li>
           <li class="list-group-item"><i><b>Aylık Fiyat %20 indirimli</b></i>  {{(car.dailyPrice *30 )*0.8|  currency:"₺"  }}</li>
           
@@ -22,7 +45,18 @@
        
       </div>
       <br>
-    </div>
-</div>
+   </div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 

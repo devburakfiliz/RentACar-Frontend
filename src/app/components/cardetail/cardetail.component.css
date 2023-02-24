@@ -1,0 +1,9 @@
+.fit{
+    width: 1000px;
+    height: 350px;
+    object-fit: cover!important;
+    ;
+}
+.cardsize{
+    width: 970px;
+}
