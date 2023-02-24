@@ -2,7 +2,9 @@
 <br>
 <div class="row ">
   
-    <div class="col-md-4" (click)="setCurrentCar(car)" routerLink="/cars/car{{car.id}" *ngFor = "let car of cars  ">
+    <div class="col-md-4" 
+    
+    *ngFor = "let car of cars " >
       <div class="card" style="width: 18rem;">
         <img [src] ="getCarImage(car)" class="img-fluid card-img-top resim d-flex size" alt="...">
 
@@ -15,7 +17,8 @@
           <li class="list-group-item"><i><b>Model Yılı</b></i> | {{car.modelYear}}</li>
           <li class="list-group-item"><i><b>Günlük Fiyat</b></i> | {{car.dailyPrice  | currency:"₺ " }}</li>
           <li class="list-group-item"><i><b>Aylık Fiyat %20 indirimli</b></i>  {{(car.dailyPrice *30 )*0.8|  currency:"₺"  }}</li>
-          <button  type="button" class="btn btn-success">Araç Detayı</button>
+          <button (click)="setCurrentCar(car)"
+          routerLink="/cars/car/{{car.carId}}"  type="button" class="btn btn-success">Araç Detayı</button>
 
   
         </ul>

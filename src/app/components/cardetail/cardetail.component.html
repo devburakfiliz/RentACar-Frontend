@@ -1,1 +1,28 @@
-<p>cardetail works!</p>
+<br>
+<br>
+<div class="row ">
+  
+    <div class="col-md-4" 
+    
+    *ngFor = "let car of carsdetail " >
+      <div class="card" style="width: 18rem;">
+        <img [src] ="getCarImage(car)" class="img-fluid card-img-top resim d-flex size" alt="...">
+
+        <div class="card-body">
+          
+          <h4 class="card-title text-center">{{car.brandName |uppercase}} </h4>
+          <h6 class="text-center">{{car.modelName}} </h6>
+        </div>
+        <ul class="list-group list-group-flush text-center text-bolder">
+          <li class="list-group-item"><i><b>Model Yılı</b></i> | {{car.modelYear}}</li>
+          <li class="list-group-item"><i><b>Günlük Fiyat</b></i> | {{car.dailyPrice  | currency:"₺ " }}</li>
+          <li class="list-group-item"><i><b>Aylık Fiyat %20 indirimli</b></i>  {{(car.dailyPrice *30 )*0.8|  currency:"₺"  }}</li>
+          
+        </ul>
+       
+      </div>
+      <br>
+    </div>
+</div>
+
+
