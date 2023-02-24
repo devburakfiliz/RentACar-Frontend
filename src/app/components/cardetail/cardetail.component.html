@@ -1,5 +1,4 @@
-<br>
-<br>
+
 <div class="row ">
 
 
@@ -42,6 +41,8 @@
           <li class="list-group-item"><i><b>Aylık Fiyat %20 indirimli</b></i>  {{(car.dailyPrice *30 )*0.8|  currency:"₺"  }}</li>
           
         </ul>
+        <button 
+          routerLink="/cars/car/{{car.carId}}"  type="button" class="btn btn-success">Aracı Şimdi Kirala</button>
        
       </div>
       <br>
