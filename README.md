@@ -10,3 +10,9 @@
 
 
 ![Ekran görüntüsü_20230223_011655](https://user-images.githubusercontent.com/110422737/220772492-2cda00e1-70f9-4979-9725-fd30620f66d9.png)
+
+
+<h5 align="left">✔️Car detail page added image slider created </h5>   (Project continues)
+
+
+![Ekran görüntüsü_20230224_204952](https://user-images.githubusercontent.com/110422737/221252714-9609424a-0901-4944-999e-41d6e5582651.png)
