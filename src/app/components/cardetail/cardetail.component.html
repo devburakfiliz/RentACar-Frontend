@@ -36,6 +36,7 @@
         </div>
         <ul class="list-group list-group-flush text-center text-bolder">
           <li class="list-group-item"><i><b>Model Yılı</b></i> | {{car.modelYear}}</li>
+          <li class="list-group-item"><i><b>Renk</b></i> | {{car.colorName}}</li>
           <li class="list-group-item"><i><b>Detaylar</b></i> | {{car.description}}</li>
           <li class="list-group-item"><i><b>Günlük Fiyat</b></i> | {{car.dailyPrice  | currency:"₺ " }}</li>
           <li class="list-group-item"><i><b>Aylık Fiyat %20 indirimli</b></i>  {{(car.dailyPrice *30 )*0.8|  currency:"₺"  }}</li>

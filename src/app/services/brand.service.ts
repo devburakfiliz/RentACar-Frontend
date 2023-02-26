@@ -12,7 +12,7 @@ export class BrandService {
 
   constructor(private httpClient : HttpClient) { }
 
-  getBrand():Observable<BrandResponseModel>{
+  getBrands():Observable<BrandResponseModel>{
     return this.httpClient.get<BrandResponseModel>(this.apiUrl)
   }
 }

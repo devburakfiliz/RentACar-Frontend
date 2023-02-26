@@ -11,6 +11,7 @@ export class BrandComponent implements OnInit {
   brands: Brand[] =[];
   currentBrand:Brand | null ;
   dataLoaded = false ;
+  filterText:""
 
   constructor(private brandService:BrandService){}
 
@@ -19,7 +20,7 @@ export class BrandComponent implements OnInit {
   }
 
   getBrands(){
-    this.brandService.getBrand() .subscribe((response)=>{
+    this.brandService.getBrands() .subscribe((response)=>{
       this.brands=response.data
       this.dataLoaded = true;
     })

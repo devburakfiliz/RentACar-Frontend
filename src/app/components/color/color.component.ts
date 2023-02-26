@@ -11,6 +11,7 @@ export class ColorComponent implements OnInit {
   colors : Color[] = [];
   dataLoaded = false;
   currentColor:Color | null;
+  filterText:""
 
   constructor(private colorService:ColorService){}
 

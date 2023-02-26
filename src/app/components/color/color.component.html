@@ -1,19 +1,33 @@
 
+
+
 <ul class="list-group topsize">
+  
     <li class="list-group-item text-center text-white bg-dark" (click) = "reset()" [class]="getAllColorClass()" routerLink = "/cars">
         RENKLER
       </li>
+      <div class="mb-3 ">
+
+    
+        <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Renk Giriniz.">
+      </div>
+      
 
     <li class="list-group-item bg-light" 
     (click) = "setCurrentColor(color)"
     routerLink = "/cars/color/{{color.id}}"
-    *ngFor = "let color of colors"
+    *ngFor = "let color of colors |colorFilterPipe:filterText,filter"
     [class] = "getCurrentColorClass(color)"
     class = "form-check-label">
-      <!-- <input class="form-check-input me-1" type="checkbox" value="" id="firstCheckbox"> -->
-      <!-- <label class="form-check-label" for="firstCheckbox">{{color.colorName}}</label> -->
+    
       {{color.colorName}}
     </li>
 
     
   </ul>
+<!-- 
+  <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+    <option selected>Renk Seçiniz.</option>
+    <option  *ngFor = "let color of colors">{{color.colorName}}</option>
+  </select>
+ -->

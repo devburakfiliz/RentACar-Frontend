@@ -1,31 +1,97 @@
+<div class="row">
+  <div class="mb-3">
+    <input
+      type="text"
+      [(ngModel)]="filterText"
+      class="form-control"
+      id="filterText"
+      placeholder="Model Giriniz."
+    />
+  </div>
+  <div *ngIf="filterText" class="alert alert-success">
+    {{ filterText }} aradınız.
+  </div>
 
-
-<div class="row ">
-  
-    <div class="col-md-4" 
+  <div class="col-md-4">
+    <select
+      [(ngModel)]="brandFilter"
+      class="form-select mb-3"
+      aria-label=".form-select-lg example"
+    >
+      <option value="0" selected>Marka Seçiniz.</option>
+      <option *ngFor="let brand of brands" [value]="brand.id">
+        {{ brand.brandName }}
+      </option>
+    </select>
+  </div>
+  <div class="col-md-4">
+    <select
+      [(ngModel)]="colorFilter"
+      class="form-select mb-3"
+      aria-label=".form-select-lg example"
+    >
+      <option value="0" selected>Renk Seçiniz.</option>
+      <option *ngFor="let color of colors" [value]="color.id">
+        {{ color.colorName }}
+      </option>
+    </select>
+  </div>
+  <div class="col-md-1 buton">
+    <button
+      (click)="getCarsByColorAndBrand(brandFilter, colorFilter)"
+ 
+      type="button"
+      class="btn btn-success"
+    >
+      Filitrele
+    </button>
+  </div>
+  <div
+    (click)="reset()"
     
-    *ngFor = "let car of cars " >
-      <div class="card" style="width: 18rem;">
-        <img [src] ="getCarImage(car)" class="img-fluid card-img-top resim d-flex size" alt="...">
+    class="col-md-1"
+  >
+    <button type="button" class="btn btn-danger">Temizle</button>
+  </div>
+
+  <div
+    class="col-md-4"
+    *ngFor="let car of cars | filterPipe : filterText; filter"
+  >
+    <div class="card" style="width: 18rem">
+      <div
+        class="cardbody"
+        (click)="setCurrentCar(car)"
+        routerLink="/cars/car/{{ car.carId }}"
+      >
+        <img
+          [src]="getCarImage(car)"
+          class="img-fluid card-img-top resim d-flex size"
+          alt="..."
+        />
 
         <div class="card-body">
-          
-          <h4 class="card-title text-center">{{car.brandName |uppercase}} </h4>
-          <h6 class="text-center">{{car.modelName}} </h6>
+          <h3 class="card-title text-center">{{ car.modelName }}</h3>
         </div>
         <ul class="list-group list-group-flush text-center text-bolder">
-          <li class="list-group-item"><i><b>Model Yılı</b></i> | {{car.modelYear}}</li>
-          <li class="list-group-item"><i><b>Günlük Fiyat</b></i> | {{car.dailyPrice  | currency:"₺ " }}</li>
-          <li class="list-group-item"><i><b>Aylık Fiyat %20 indirimli</b></i>  {{(car.dailyPrice *30 )*0.8|  currency:"₺"  }}</li>
-          <button (click)="setCurrentCar(car)"
-          routerLink="/cars/car/{{car.carId}}"  type="button" class="btn btn-success">Araç Detayı</button>
-
-  
+          <li class="list-group-item">
+            <i><b>Marka</b></i> | {{ car.brandName }}
+          </li>
+          <li class="list-group-item">
+            <i><b>Model Yılı</b></i> | {{ car.modelYear }}
+          </li>
+          <li class="list-group-item">
+            <i><b>Günlük Fiyat</b></i> | {{ car.dailyPrice | currency : "₺ " }}
+          </li>
+          <li class="list-group-item">
+            <i><b>Aylık Fiyat %20 indirimli</b></i>
+            {{ car.dailyPrice * 30 * 0.8 | currency : "₺" }}
+          </li>
         </ul>
-       
       </div>
-      <br>
+
+      <button type="button" class="btn btn-success">Hızlı Kirala</button>
     </div>
+    <br />
+  </div>
 </div>
-
-
