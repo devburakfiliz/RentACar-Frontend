@@ -8,6 +8,7 @@ import { Color } from 'src/app/models/color';
 import { BrandService } from 'src/app/services/brand.service';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
+import { CartService } from 'src/app/services/cart.service';
 import { ColorService } from 'src/app/services/color.service';
 @Component({
   selector: 'app-car',
@@ -34,7 +35,9 @@ export class CarComponent implements OnInit {
     private activatedRouted:ActivatedRoute,
     private carImageService:CarImageService,
     private brandService:BrandService,
-    private colorService:ColorService){}
+    private colorService:ColorService,
+    private toastrService:ToastrService,
+    private cartService:CartService){}
 
   ngOnInit(): void {
     this.activatedRouted.params.subscribe(params => {
@@ -115,6 +118,11 @@ export class CarComponent implements OnInit {
   reset(){
     this.currentCar = null;
 
+  }
+
+  addToCart(car:Car){ 
+    this.toastrService.success("Sepete eklendi",car.modelName)
+    this.cartService.addToCart(car);
   }
   
 

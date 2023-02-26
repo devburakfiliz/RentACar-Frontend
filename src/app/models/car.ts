@@ -9,4 +9,5 @@ export interface Car{
     colorName:string;
     imagePath:string;
     modelName:string;
+    
 }

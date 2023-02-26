@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Rental } from 'src/app/models/rental';
 import { RentalService } from 'src/app/services/rental.service';
@@ -11,10 +12,12 @@ export class RentalComponent implements OnInit{
   rentals : Rental []=[];
   dataLoaded = false ;
 
-  constructor(private rentalService : RentalService){}
+  constructor(private rentalService : RentalService,
+    http:HttpClient){}
 
   ngOnInit(): void {
     this.getRentals();
+    
   }
 
   getRentals(){
@@ -23,5 +26,6 @@ export class RentalComponent implements OnInit{
       this.dataLoaded = true;
     })
   }
+  
 
 }
