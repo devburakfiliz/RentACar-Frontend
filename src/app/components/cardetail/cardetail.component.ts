@@ -3,9 +3,11 @@ import { ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Car } from 'src/app/models/car';
 import { CarImage } from 'src/app/models/carImage';
+import { Rental } from 'src/app/models/rental';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
 import { CartService } from 'src/app/services/cart.service';
+import { RentalService } from 'src/app/services/rental.service';
 
 @Component({
   selector: 'app-cardetail',
@@ -19,14 +21,15 @@ export class CardetailComponent implements OnInit{
    currentCar:Car
    currentImage: CarImage;
    dataLoaded = false ;
-
+   
 
   
    constructor(private carService: CarService,
     private activatedToute:ActivatedRoute,
     private carImageService:CarImageService,
     private cartService:CartService,
-    private toastrService:ToastrService){}
+    private toastrService:ToastrService,
+   ){}
 
     ngOnInit(): void {
       this.activatedToute.params.subscribe(params => {
@@ -96,9 +99,12 @@ export class CardetailComponent implements OnInit{
   setCurrentCar(car:Car){
     this.currentCar=car;
   }
+
   addToCart(car:Car){ 
     this.toastrService.success("Sepete eklendi",car.modelName)
     this.cartService.addToCart(car);
+
+
   }
 
   

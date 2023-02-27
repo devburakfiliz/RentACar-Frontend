@@ -4,4 +4,6 @@ export interface Rental{
  customerName:string;
  rentDate : Date;
  returnDate: Date;
+ imagePath:string;
+ modelName:string;
 }
