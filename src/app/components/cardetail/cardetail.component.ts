@@ -50,55 +50,18 @@ export class CardetailComponent implements OnInit{
       return path;
     }
 
-    getCars(){
-      this.carService.getCars(). subscribe((response)=>{
-        this.carsdetail=response.data
-        this.dataLoaded=true;
-        
-      })
-    }
+   
     getCarById(id:number) {
       this.carService.getCarById(id).subscribe(response => {
       this.carsdetail = response.data;
       this.dataLoaded = true;
       })
     
-    } getCarImage(car:Car){
-    if (car.imagePath == null) {
-      let path = this.imageUrl + "a4f5208e-22e4-4fe2-8426-e61807a07393.jpg"
-      return path;
-
-    }
-    else{
-      let path = this.imageUrl + car.imagePath;
-      return path;
-    }
-  }
+    } 
   
-  getButtonClass(image: CarImage) {
-    if ((image === this.carImages[0])) {
-      return 'active';
-    } else {
-      return '';
-    }
-  }
+ 
 
-  getCurrentImageClass(image: CarImage) {
-    if (this.carImages[0] == image) {
-      return 'carousel-item active';
-    } else {
-      return 'carousel-item ';
-    }
-  }
-
-  setCurrentImageClass(image: CarImage) {
-    this.currentImage = image;
-    this.dataLoaded=true;
-
-  }
-  setCurrentCar(car:Car){
-    this.currentCar=car;
-  }
+  
 
   addToCart(car:Car){ 
     this.toastrService.success("Sepete eklendi",car.modelName)
