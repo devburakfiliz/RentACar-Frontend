@@ -19,6 +19,8 @@ export class CardetailComponent implements OnInit{
    imageUrl = "https://localhost:44392/uploads/images/"
    carImages:CarImage[] = [];
    currentCar:Car
+   rental:Rental[]=[];
+   currentRental:Rental
    currentImage: CarImage;
    dataLoaded = false ;
    
@@ -29,12 +31,16 @@ export class CardetailComponent implements OnInit{
     private carImageService:CarImageService,
     private cartService:CartService,
     private toastrService:ToastrService,
+    private renalService:RentalService
    ){}
 
     ngOnInit(): void {
       this.activatedToute.params.subscribe(params => {
         this.getCarById(params["carId"])
-        this.getImageByCarId(params["carId"])
+        
+          this.getImageByCarId(params["carId"])
+        
+        
       })
     }
     getImageByCarId(carId:number){
@@ -58,17 +64,29 @@ export class CardetailComponent implements OnInit{
       })
     
     } 
-  
+    
+    setCurrentRental(rental:Rental){
+      this.currentRental=rental;
+    }
  
 
   
 
   addToCart(car:Car){ 
-    this.toastrService.success("Sepete eklendi",car.modelName)
-    this.cartService.addToCart(car);
+    
+      this.toastrService.success("Sepete eklendi",car.modelName)
+      this.cartService.addToCart(car);
+  
 
 
   }
+  sertCurrentCar(car:Car){
+    this.currentCar=car;
+  }
+
+  }
+    
+ 
 
   
-}
+
