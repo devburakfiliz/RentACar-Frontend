@@ -22,6 +22,8 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { PaymentComponent } from './components/payment/payment.component';
 import { PayComponent } from './components/pay/pay.component';
 import { RentalAddComponent } from './components/rental-add/rental-add.component';
+import { CarAddComponent } from './components/car-add/car-add.component';
+import { CarUpdateComponent } from './components/car-update/car-update.component';
 
 
 @NgModule({
@@ -41,8 +43,9 @@ import { RentalAddComponent } from './components/rental-add/rental-add.component
     CartSummaryComponent,
     PaymentComponent,
     PayComponent,
-    RentalAddComponent
- ],
+    RentalAddComponent,
+    CarAddComponent,
+    CarUpdateComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,

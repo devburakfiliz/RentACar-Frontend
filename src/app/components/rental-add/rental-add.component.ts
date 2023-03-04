@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators,FormControl } from '@angular/forms';
+import { FormBuilder, Validators,FormControl, FormGroup } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Rental } from 'src/app/models/rental';
 import { RentalService } from 'src/app/services/rental.service';
@@ -11,7 +11,7 @@ import { RentalService } from 'src/app/services/rental.service';
 })
 export class RentalAddComponent implements OnInit {
   rentalAddForm: FormGroup;
-  constructor(private formBulilder:FormBuilder,
+  constructor(private formBuilder:FormBuilder,
     private rentalService:RentalService,
     private toastrService:ToastrService){}
 
@@ -20,7 +20,7 @@ export class RentalAddComponent implements OnInit {
     }
 
     createRentalAddForm(){
-      this.rentalAddForm=this.formBulilder.group({
+      this.rentalAddForm=this.formBuilder.group({
         carId:["",Validators.required],
         rentDate:["",Validators.required],
         customerId:["",Validators.required]
