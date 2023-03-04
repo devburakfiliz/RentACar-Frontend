@@ -1,1 +1,64 @@
-<p>pay works!</p>
+<div class="content">
+    <div  class="col-md-12">
+        <div class="card">
+            <div class="card-header"><h5 class="title">Kredi Kartı ödemesi</h5></div>
+            <div class="card-body">
+                <form [formGroup]="payAddForm" >
+                    <div class="mb-3">
+                        <label for="fullName">Kart sahibi adı</label>
+                    <div class="form-group">
+                        <input type="text" 
+                        id="fullName" 
+                        formControlName="fullName"
+                        class="form-control" placeholder="İsim Soyisim"/>
+                    </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="cardNumber">Kart Numarası</label>
+                    <div class="form-group">
+                        <input type="text" 
+                        id="cardNumber" 
+                        formControlName="cardNumber"
+                        class="form-control" placeholder="Kart Numarası"/>
+                    </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="cvv">CVV</label>
+                    <div class="form-group">
+                        <input type="text" 
+                        id="cvv" 
+                        formControlName="cvv"
+                        class="form-control" placeholder="CVV"/>
+                    </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="mount">Ay</label>
+                    <div class="form-group">
+                        <input type="number" 
+                        id="mount" 
+                        formControlName="mount"
+                        class="form-control" placeholder="Ay"/>
+                    </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="year">Yıl</label>
+                    <div class="form-group">
+                        <input type="number" 
+                        id="year" 
+                        formControlName="year"
+                        class="form-control" placeholder="Yıl"/>
+                    </div>
+                    </div>
+                    
+                </form>
+            </div>
+            <div class="card-footer">
+                <button class="btn btn-fill btn-primary" (click)="add()">Ekle</button>
+            </div>
+        </div> 
+    </div>
+
+</div>

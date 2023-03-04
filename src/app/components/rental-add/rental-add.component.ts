@@ -30,16 +30,23 @@ export class RentalAddComponent implements OnInit {
       if (this.rentalAddForm.valid) {
         let rental:Rental = Object.assign({}, this.rentalAddForm.value);
         
-        this.rentalService.add(rental).subscribe(response=>{
+          this.rentalService.add(rental).subscribe(response=>{
           this.toastrService.success(response.message, "Başarılı!");
-        } ,responseError=>{  
+          // if (response.success==true) {
+          //   this.toastrService.success("Sepete eklendi")
+          //   this.rentalService.add(rental);
 
-          if(responseError.error.Errors.length>0){
-            for (let i = 0; i <responseError.error.Errors.length; i++) {
-              this.toastrService.error(responseError.error.Errors[i].ErrorMessage
+          // }
+        } ,responseError=>{  
+          console.log(responseError.error.message)
+
+          if(responseError){
+           
+              this.toastrService.error(responseError.error.message
                 ,"Doğrulama hatası")
-            }       
+                
           } 
+          
         }
         )
       } else {
@@ -49,4 +56,5 @@ export class RentalAddComponent implements OnInit {
     
   
 }
+
 
