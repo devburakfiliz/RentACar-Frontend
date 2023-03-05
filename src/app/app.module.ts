@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule,ReactiveFormsModule  } from "@angular/forms";
@@ -24,6 +24,9 @@ import { PayComponent } from './components/pay/pay.component';
 import { RentalAddComponent } from './components/rental-add/rental-add.component';
 import { CarAddComponent } from './components/car-add/car-add.component';
 import { CarUpdateComponent } from './components/car-update/car-update.component';
+import { LoginComponent } from './components/login/login.component';
+import { AuthInterceptor } from './intercepters/auth.interceptor';
+import { RegisterComponent } from './components/register/register.component';
 
 
 @NgModule({
@@ -45,7 +48,9 @@ import { CarUpdateComponent } from './components/car-update/car-update.component
     PayComponent,
     RentalAddComponent,
     CarAddComponent,
-    CarUpdateComponent ],
+    CarUpdateComponent,
+    LoginComponent,
+    RegisterComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -57,7 +62,9 @@ import { CarUpdateComponent } from './components/car-update/car-update.component
       positionClass:"toast-bottom-right"
     })
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS,useClass:AuthInterceptor,multi:true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
