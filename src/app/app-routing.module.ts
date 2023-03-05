@@ -4,6 +4,8 @@ import { CarAddComponent } from './components/car-add/car-add.component';
 import { CarUpdateComponent } from './components/car-update/car-update.component';
 import { CarComponent } from './components/car/car.component';
 import { CardetailComponent } from './components/cardetail/cardetail.component';
+import { ColorAddComponent } from './components/color-add/color-add.component';
+import { ColorUpdateComponent } from './components/color-update/color-update.component';
 import { LoginComponent } from './components/login/login.component';
 import { PayComponent } from './components/pay/pay.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -21,7 +23,10 @@ const routes: Routes = [
   {path:"cars/add",component:CarAddComponent, canActivate:[LoginGuard]},
   {path:"cars/update",component:CarUpdateComponent},
   {path:"login",component:LoginComponent},
-  {path:"register",component:RegisterComponent}
+  {path:"register",component:RegisterComponent},
+  {path:"colors/add",component:ColorAddComponent},
+  {path:"colors/update",component:ColorUpdateComponent}
+  
   
   
   

@@ -27,6 +27,8 @@ import { CarUpdateComponent } from './components/car-update/car-update.component
 import { LoginComponent } from './components/login/login.component';
 import { AuthInterceptor } from './intercepters/auth.interceptor';
 import { RegisterComponent } from './components/register/register.component';
+import { ColorAddComponent } from './components/color-add/color-add.component';
+import { ColorUpdateComponent } from './components/color-update/color-update.component';
 
 
 @NgModule({
@@ -50,7 +52,9 @@ import { RegisterComponent } from './components/register/register.component';
     CarAddComponent,
     CarUpdateComponent,
     LoginComponent,
-    RegisterComponent ],
+    RegisterComponent,
+    ColorAddComponent,
+    ColorUpdateComponent ],
   imports: [
     BrowserModule,
     AppRoutingModule,
